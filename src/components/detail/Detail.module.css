@@ -1,0 +1,14 @@
+.detail{
+    background-color:var(--pokemon-primary,var(--primary-color)); 
+}
+
+meter::after{
+    content:attr(value)
+}
+
+.name{
+    color:var(--pokemon-background,var(--background-color))
+}
+.id{
+
+}

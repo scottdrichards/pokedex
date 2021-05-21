@@ -1,0 +1,1 @@
+export const CapitalFirst = (word:string)=>word[0].toLocaleUpperCase()+word.slice(1).toLocaleLowerCase();
