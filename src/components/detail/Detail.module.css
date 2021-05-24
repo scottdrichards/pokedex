@@ -5,61 +5,38 @@
     transition: background-color var(--transition), border-top-color var(--transition);
 }
 
-.button{
-    /* Clear Styles*/
-    font-family: inherit;
-    font-size: 100%;
-    border:none;
-    background: none;
-    color:var(--background-color)
-}
-
 .typeContainer{
-    border-radius: var(--border-radius) var(--border-radius) 0 0 ;
-    border-bottom: 1px rgba(0,0,0,.3) solid;
+    max-width: calc(100% - 100px);
 }
 
-.meter{
-    height:40px;
-    width:100%;
+hr{
+    background-color: rgba(0,0,0,.3);
+    border: none;
+    height: 1px;
+
+    /* Hack to pierce padding */
+    width: calc(100% + 2 * var(--spacing));
     position: relative;
-
-    background-position-y: 50%;
-}
-.meter{
-    box-shadow: 0 5px 5px -5px #999 inset;
-    background-color: rgb(223, 223, 223);
-    border:none;
-    border-radius: 0;    
-}
-
-.meter{
-    box-shadow: 0 5px 5px -5px #999 inset;
-    background-color: rgb(126, 204, 126);
-    
-    -webkit-animation: growWidth 10s linear !important;
-    animation: growWidth 10s  linear !important;
-}
-
-meter::after{
-    content:attr(value);
-    position:absolute;
-    top:50%;
-    left:.6em;
-    transform:translateY(-50%);
-    color:var(--background-color);
+    left: calc(-1 * var(--spacing));
 }
 
 .name,.id{
     color:var(--background-color);
+    font-size: 40px;
     font-weight: bold;
     margin: 10px;
 }
 .id{
     opacity: .7;
+    position: absolute;
+    top: -17px;
+    left: 0;
+    font-size: 31px;
 }
 
-section{
+main{
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
     background-color:var(--background-color);
     transition: background-color var(--transition);
 }
@@ -75,18 +52,7 @@ section{
 .figure img{
     display:block; /*remove inline-block spaces*/
     width:100%; /*make image streatch*/
-    margin:-15px 0 0 17px ; /*crop*/
-}
-
-section{
-    padding:var(--spacing);
-}
-
-section:first-of-type{
-    border-radius: 5px 5px 0 0;
-}
-section:last-of-type{
-    border-radius: 0 0 5px 5px;
+    margin:-15px 0 0 55px ; /*crop*/
 }
 
 .genus{
