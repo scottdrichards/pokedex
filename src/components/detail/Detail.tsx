@@ -27,11 +27,11 @@ const Detail = ({id}:DetailProps)=>{
             DominantColors({url:urls})
                 .then(colors=>{
                     // Sort from darkest to lightest
-                    const sortedColors = colors.sort((a,b)=>luminance(b)-luminance(a));
+                    // const sortedColors = colors.sort((a,b)=>luminance(b)-luminance(a));
                     // Change styles state variables (css custom properties)
                     const styleVars = {} as React.CSSProperties;
-                    if (sortedColors[0]) styleVars['--primary-color']=ColorString(colors[0]);
-                    if (sortedColors[1]) styleVars['--secondary-color']=ColorString(colors[1]);
+                    if (colors[0]) styleVars['--primary-color']=ColorString(colors[0]);
+                    if (colors[1]) styleVars['--secondary-color']=ColorString(colors[1]);
                     setAttrs({...attrs,styleVars})
             })
                 // Update state
