@@ -18,11 +18,16 @@
     animation: growBar .25s both;
     
     /* Bar Styling */
-    background: linear-gradient(90deg, var(--secondary-color,#8eca8e) var(--percent), rgba(0,0,0,0) var(--percent));
+    background: linear-gradient(90deg, var(--primary-color,#8eca8e) var(--percent), rgba(0,0,0,0) var(--percent));
     background-repeat: no-repeat;
-    box-shadow: inset 3px 4px 2px rgba(0,0,0,.1);
+    /* box-shadow: inset 3px 4px 2px rgba(0,0,0,.1); */
     border: 1px solid rgba(0,0,0,.1);
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    
+
+    /* Center Text */
+    display: flex;
+    align-items: center;
 }
 
 @keyframes jiggle {

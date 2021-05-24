@@ -55,6 +55,29 @@ main{
     margin:-15px 0 0 55px ; /*crop*/
 }
 
+section.stats{
+    --min-label:130px;
+    --min-meter:70px;
+    --min-column-size:calc(var(--min-meter) + var(--min-label));
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(var(--min-column-size), 1fr));
+    
+    grid-row-gap: .2em;
+
+    padding: var(--spacing);
+}
+section.stats .stat{
+    display: flex;
+    flex-wrap: nowrap;
+}
+section.stats .meter{
+    flex-grow: 1;
+}
+section.stats .label{
+    width: var(--min-label);
+    padding: 5px;
+}
+
 .genus{
     margin:var(--spacing);
     font-weight: bold;

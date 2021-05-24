@@ -56,12 +56,12 @@ const Detail = ({id}:DetailProps)=>{
                 ))}
             </section>
             <hr/>
-            <section>
+            <section className={styles.stats}>
                 {attrs&&Object.entries(attrs.stats).map(([k,v],i)=>(
-                    <React.Fragment key={i}>
-                        <div className="label" >{k}</div>
-                        <Meter val={v} min={0} max={255}/>
-                    </React.Fragment>
+                    <div className={styles.stat} key={i}>
+                        <div className={styles.label} >{k}</div>
+                        <Meter className={styles.meter} val={v} min={0} max={255}/>
+                    </div>
                 ))}
             </section>
             <section>
