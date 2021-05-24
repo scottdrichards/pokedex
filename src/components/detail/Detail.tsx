@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getPokemon, PokemonAttributes } from "../../API";
 import { ColorString, DominantColors, luminance } from "../../utils/color";
-import { CapitalFirst } from "../../utils/utils";
+import { CapitalFirst, TitleCase } from "../../utils/utils";
 import { Meter } from "../meter/Meter";
 import { PokeType } from "../pokeType/PokeType";
 import styles from './Detail.module.css';
@@ -59,7 +59,7 @@ const Detail = ({id}:DetailProps)=>{
             <section className={styles.stats}>
                 {attrs&&Object.entries(attrs.stats).map(([k,v],i)=>(
                     <div className={styles.stat} key={i}>
-                        <div className={styles.label} >{k}</div>
+                        <div className={styles.label} >{TitleCase(k)}</div>
                         <Meter className={styles.meter} val={v} min={0} max={255}/>
                     </div>
                 ))}
