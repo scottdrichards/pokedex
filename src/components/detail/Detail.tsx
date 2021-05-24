@@ -1,53 +1,79 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import { getPokemon, PokemonAttributes } from "../../API";
-import { CapitalFirst } from "../../utils";
-
+import { CapitalFirst } from "../../utils/utils";
+import { ColorString, DominantColors } from "../../utils/color"
 import styles from './Detail.module.css';
+import { PokeType } from "../pokeType/PokeType";
+import { Meter } from "../meter/Meter";
+
 
 interface DetailProps{id:number}
-const Detail = (props:DetailProps)=>{
-    const [attrs, setAttrs] = useState<PokemonAttributes|undefined>(undefined)
+const Detail = ({id}:DetailProps)=>{
+    ////////////////
+    // Set up hooks
+
+    // State management
+    const [attrs, setAttrs] = useState<PokemonAttributes&{styleVars?:React.CSSProperties}|undefined>(undefined);
     
+    // Used for the 'go back' button
+    const history = useHistory();
+    
+    // Download data when id (not state) changes
     useEffect(()=>{
-        getPokemon(props.id).then(setAttrs)
-    },[props.id])// only change when props.id changes (and not internal state)
+        getPokemon(id).then(res=>res.data).then(attrs=>{
+            // Grab the image to find out color scheme
+            DominantColors(attrs.image/*url*/).then(colors=>{
+                    const styleVars = {} as React.CSSProperties;
+                    if (colors[0]) styleVars['--primary-color']=ColorString(colors[0]);
+                    if (colors[1]) styleVars['--secondary-color']=ColorString(colors[1]);
+                    setAttrs({...attrs,styleVars})
+                })
+
+                // Update state
+                setAttrs(attrs);
+            })
+    },[id])
      
-    
-    return <div className={styles.detail}>
-        <header>
-            <span className={styles.name}>{attrs?.name}</span>
-            <span className="id">#{attrs?.id}</span>
-            {attrs?.types.map(type=>(
-                <div className="type" key={type}>{type}</div>
+
+    ////////////////
+    // Render
+    return <div className={styles.detail} style={attrs?.styleVars}>
+        <button type="button" onClick={()=>history.goBack()} className={styles.button}>⬅</button>
+        <span className={styles.name}>{attrs?.name}</span>
+        <span className={styles.id}>#{attrs?.id}</span>
+        <section className={styles.typeContainer}>
+            {attrs?.types.map((type,i)=>(
+                <PokeType type={type} key={i}/>
             ))}
-        </header> 
-        <div className="body">
-            <img src={attrs?.image} alt={attrs?.name}></img>
-            <div className="stats">
-                {attrs&&Object.entries(attrs.stats).map(([k,v])=>(
-                <div key={k}>
-                    <div className="label">{k}</div>
-                    <meter value={v} max={250}>{v}/{250}</meter>
+        </section>
+        <figure className={styles.figure}><img src={attrs?.image} alt={attrs?.name} ></img></figure>
+        <section className={styles.stats}>
+            {attrs&&Object.entries(attrs.stats).map(([k,v],i)=>
+                    <div key={i}>
+                        <div className="label">{k}</div>
+                        <Meter val={v} min={0} max={255}/>
+                    </div>
+                    )}
+        </section>
+        <section>
+            <div className={styles.genus}>{attrs?.genus}</div>
+            <div className={styles.description}>{attrs?.description}</div>
+        </section>
+        <section className={styles.profile}>
+            <header>Profile</header>
+            {[
+                ["Height",attrs?.height + " m"],
+                ["Weight", attrs?.weight+" kg"],
+                ["Egg Groups", attrs?.egg_groups.map(CapitalFirst).join(", ")],
+                ["Abilities", attrs?.abilities.map(CapitalFirst).join(", ")]
+            ].map(([label,value])=>(
+                <div key={label}>
+                    <div className={styles.label}>{label}</div>
+                    <div className={styles.value}>{value}</div>
                 </div>
             ))}
-            </div>
-            <div className="genus">{attrs?.genus}</div>
-            <div className="description">{attrs?.description}</div>
-            <section>
-                <header>Profile</header>
-                {[
-                    ["Height",attrs?.height + " m"],
-                    ["Weight", attrs?.weight+" kg"],
-                    ["Egg Groups", attrs?.egg_groups.map(CapitalFirst).join(", ")],
-                    ["Abilities", attrs?.abilities.map(CapitalFirst).join(", ")]
-                ].map(([label,value])=>(
-                    <div key={label}>
-                        <div className="label">{label}</div>
-                        <div className="value">{value}</div>
-                    </div>
-                ))}
-            </section>
-        </div>
+        </section>
     </div>
 }
 export default Detail

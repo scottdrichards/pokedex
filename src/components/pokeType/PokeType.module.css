@@ -1,0 +1,74 @@
+
+.type{
+    --border-thickness: 2px;
+    --border-radius: 6px;
+    z-index: 0;
+    padding: 2px 6px;
+    margin:5px;
+    display: inline-block;
+    text-transform:uppercase;
+    position: relative;
+    color: var(--type-color);
+}
+.type,.type::before,.type::after{
+    border-radius: var(--border-radius);
+    border: var(--border-thickness) solid rgba(0,0,0,0);
+}
+
+.type::before, .type::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.type::before,.type::after{
+    /* This is used to position the before/after
+    pseudo-elements so that their border does not shift them*/
+    --offset-bf:calc(-1*var(--border-thickness)/2);
+    top:var(--offset-bf);
+    left:var(--offset-bf);
+}
+.type::before{
+    opacity: .2;
+    z-index: -1;
+    background-color: var(--type-color);
+}
+.type::after{
+    opacity: .5;
+    z-index: 2;
+    border-color: var(--type-color);
+}
+
+.grass{
+    --type-color:green
+}
+
+.psychic{
+    --type-color: gray;
+}
+.poison{
+    --type-color: purple;
+}
+.fire{
+    --type-color: orange;
+}
+.flying{
+    --type-color: rgb(73, 73, 172);
+}
+.water{
+    --type-color:blue;
+}
+.fairy{
+    --type-color:pink;
+}
+.ground{
+    --type-color:brown;
+}
+.rock{
+    --type-color:rgb(77, 77, 77);
+}
+.electric{
+    --type-color:rgb(140, 140, 241);
+}

@@ -3,4 +3,8 @@
   --secondary-color: #2424bb;
   --background-color:white;
   --warn-color:orange;
+
+  --border-radius:5px;
+  --spacing: 10px;
+  --transition: 1s;
 }

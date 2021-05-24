@@ -1,0 +1,79 @@
+
+@keyframes growBar{
+    from{
+        background-size: 0% 100%;
+    }
+    to{
+        background-size: 100% 100%;
+    }
+}
+
+.meter{
+    color: var(--background-color);
+    padding:1px 3px;
+    
+    /* Bar Size */
+    --amount: calc(var(--value)/var(--maximum));
+    --percent: calc(100%*var(--amount));
+    animation: growBar .25s both;
+    
+    /* Bar Styling */
+    background: linear-gradient(90deg, var(--secondary-color,#8eca8e) var(--percent), rgba(0,0,0,0) var(--percent));
+    background-repeat: no-repeat;
+    box-shadow: inset 3px 4px 2px rgba(0,0,0,.1);
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 5px;
+}
+
+@keyframes jiggle {
+    0% {
+        transform:rotate(0deg);
+    }
+    25% {
+        transform:rotate(calc(-1*var(--rotate)));
+    }
+    50% {
+        transform:rotate(0deg);
+    }
+    75% {
+        transform:rotate(var(--rotate));
+    }
+    100% {
+        transform:rotate(0deg);
+    }
+}
+
+@keyframes wiggle {
+    0% {
+        transform:translate(0,var(--translate));
+    }
+    25% {
+        transform:translate(0,calc(-1*var(--translate)));
+    }
+    50% {
+        transform:translate(calc(-1*var(--translate)),0);
+    }
+    75% {
+        transform:translate(var(--translate),0);
+    }
+    100% {
+        transform:translate(0,var(--translate));
+    }
+}
+.value{
+    animation: jiggle .5s infinite;
+    display: inline-block;
+    --rotate:calc(var(--anim-intensity)*30deg);
+    --translate:calc(var(--anim-intensity)*2px);
+    color:rgba(0,0,0,0);
+}
+.value::before{
+    position: absolute;
+    top:0;
+    left:0;
+    animation: wiggle .1s infinite;
+    display: inline-block;
+    color: var(--background-color);
+    content: attr(data-value);
+    text-shadow: 0 0 1px black;
+}
