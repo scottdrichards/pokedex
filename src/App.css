@@ -5,6 +5,7 @@
   --warn-color:orange;
 
   --border-radius:5px;
-  --spacing: 10px;
+  --mobile-spacing: 10px;
+  --desktop-spacing: 20px;
   --transition: 1s;
 }

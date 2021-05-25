@@ -49,13 +49,15 @@ const Detail = ({id}:DetailProps)=>{
             <span className={styles.id}>#{attrs?.id}</span>
         </header>
         <main>
-            <figure className={styles.figure}><img src={attrs?.image} alt={attrs?.name} ></img></figure>
             <section className={styles.typeContainer}>
+                <span className={styles.name}>{attrs?.name}</span>
+                <span className={styles.id}>#{attrs?.id}</span>
                 {attrs?.types.map((type,i)=>(
                     <PokeType type={type} key={i}/>
                 ))}
             </section>
             <hr/>
+            <figure className={styles.figure}><img src={attrs?.image} alt={attrs?.name} ></img></figure>
             <section className={styles.stats}>
                 {attrs&&Object.entries(attrs.stats).map(([k,v],i)=>(
                     <div className={styles.stat} key={i}>
