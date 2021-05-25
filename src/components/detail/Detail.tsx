@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getPokemon, PokemonAttributes } from "../../API";
-import { ColorString, DominantColors, luminance } from "../../utils/color";
+import { ColorString, DominantColors } from "../../utils/color";
 import { CapitalFirst, TitleCase } from "../../utils/utils";
 import { Meter } from "../meter/Meter";
 import { PokeType } from "../pokeType/PokeType";
