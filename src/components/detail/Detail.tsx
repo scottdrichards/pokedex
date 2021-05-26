@@ -4,7 +4,7 @@ import { ColorString, DominantColors } from "../../utils/color";
 import { CapitalFirst, TitleCase } from "../../utils/utils";
 import { Meter } from "../meter/Meter";
 import { PokeType } from "../pokeType/PokeType";
-import styles from './Detail.module.css';
+import styles from './Detail.module.sass';
 
 interface DetailProps{id:number}
 

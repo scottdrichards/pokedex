@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { getPokemonList, PokemonList } from "../../API";
 import { PokeType } from "../pokeType/PokeType";
-import * as styles from './Pokelist.module.css';
+import styles from './Pokelist.module.sass';
 
 interface PokeListProps{
     onNameChange:Function,

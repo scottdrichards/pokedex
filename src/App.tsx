@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import './App.css';
+import './App.sass';
 import Detail from './components/detail/Detail';
 import { PokeList } from './components/pokelist/Pokelist';
 

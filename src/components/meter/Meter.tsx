@@ -1,4 +1,4 @@
-import styles from './Meter.module.css';
+import styles from './Meter.module.sass';
 
 interface MeterParams{
     val:number
