@@ -37,9 +37,18 @@ export const TitleCase = (phrase:string)=>{
  * @returns 
  */
 export const sameOrigin=(url:string)=>{
-    const local = window.location;
+  const local = window.location;
+  try{
     const foreign = new URL(url);
-    return  local.host===foreign.host &&
-            local.port===foreign.port &&
-            local.protocol===foreign.protocol
+  return  local.host===foreign.host &&
+          local.port===foreign.port &&
+          local.protocol===foreign.protocol
+  }catch(e){
+    if (e instanceof TypeError){
+      // It was unable to parse the url
+      return false;
+    }
+    // If we don't know what happened, just keep passing the error along
+    throw(e);
+  }
 }
