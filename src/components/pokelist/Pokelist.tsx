@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { getPokemonList, PokemonList } from "../../API";
 import { PokeType } from "../pokeType/PokeType";
+import * as styles from './Pokelist.module.css';
 
 interface PokeListProps{
     onNameChange:Function,
@@ -25,12 +26,17 @@ export const PokeList = ({onNameChange,page,name}:PokeListProps)=>{
     },[page,name])
 
     return <div>
-        <form>
-            <input type="text" value={name} onChange={(e)=>onNameChange(e.target.value)} />
-        </form>
+        <header>
+            <button className={styles.prevButton}>Previous</button>
+            <form>
+                <input type="text" value={name} onChange={(e)=>onNameChange(e.target.value)} />
+            </form>
+            <button className={styles.nextButton}>Next</button>
+        </header>
+        <main className={styles.list}>
         {attrs?.data.map(({id,name,image,types},i)=>(
             <a key={i} href={history.location.pathname+id}>
-                <div key={i}>
+                <div key={i} className={styles.pokemon}>
                     <span>{name}</span>
                     <img src={image} alt={name}/>
                     <div>
@@ -39,5 +45,6 @@ export const PokeList = ({onNameChange,page,name}:PokeListProps)=>{
                 </div>
             </a>
         ))}
+        </main>
     </div>
 }

@@ -1,0 +1,9 @@
+main .list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.pokemon{
+    width:300px;
+    background-color: blue;
+    margin:10px;
+}
