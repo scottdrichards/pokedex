@@ -10,62 +10,36 @@
   color: var(--type-color)
   border-radius: var(--border-radius)
   border: var(--border-thickness) solid rgba(0, 0, 0, 0)
+  
+  --grass: green
+  --psychic: gray
+  --poison: purple
+  --fire: orange
+  --flying: rgb(73, 73, 172)
+  --water: blue
+  --fairy: pink
+  --ground: brown
+  --rock: rgb(77, 77, 77)
+  --electric: rgb(140, 140, 241)
 
   &::before, &::after
     border-radius: var(--border-radius)
-    border: var(--border-thickness) solid rgba(0, 0, 0, 0)
-
-  &::before, &::after
+    border-width: var(--border-thickness)
+    border-style: solid
+    border-color: rgba(0, 0, 0, 0)
     content: ""
     position: absolute
     height: 100%
     width: 100%
-    top: 0
-    left: 0
-
-  &::before, &::after
-    // This is used to position the before/after
-    // pseudo-elements so that their border does not shift them
-    --offset-bf:calc(-1*var(--border-thickness)\/2)
-    top: var(--offset-bf)
-    left: var(--offset-bf)
-
+    top: -1px
+    left: -1px
+    
   &::before
     opacity: .2
-    z-index: -1
+    z-index: 0
     background-color: var(--type-color)
 
   &::after
     opacity: .5
     z-index: 2
     border-color: var(--type-color)
-
-.grass
-  --type-color:green
-
-.psychic
-  --type-color:gray
-
-.poison
-  --type-color:purple
-
-.fire
-  --type-color:orange
-
-.flying
-  --type-color:rgb(73, 73, 172)
-
-.water
-  --type-color:blue
-
-.fairy
-  --type-color:pink
-
-.ground
-  --type-color:brown
-
-.rock
-  --type-color:rgb(77, 77, 77)
-
-.electric
-  --type-color:rgb(140, 140, 241)
