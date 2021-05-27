@@ -3,12 +3,12 @@ import * as CSS from 'csstype';
 
 declare module 'csstype'{
     interface Properties{
-        '--primary-color': string;
-        '--secondary-color': string;
-        '--background-color':string;
-        '--warn-color':string;
+        '--primary-color'?: string;
+        '--secondary-color'?: string;
+        '--background-color'?:string;
+        '--warn-color'?:string;
       
-        '--border-radius':string;
-        '--spacing': string;
+        '--border-radius'?:string;
+        '--spacing'?: string;
     }
 }
