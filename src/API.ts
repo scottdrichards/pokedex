@@ -1,6 +1,8 @@
 export const APIURL = "https://intern-pokedex.myriadapps.com/api"
 export const API_VERSION = "v1"
-export const API_POKEMON_URL = APIURL+'/'+API_VERSION+"/pokemon"
+const API_BASE = APIURL+'/'+API_VERSION
+export const API_POKEMON_URL = API_BASE+"/pokemon"
+export const API_TO_UI_URL = (apiURL:string)=>apiURL.slice(API_BASE.length)
 
 const api=<T extends APIResponse>(url:string,queryParams?:string | string[][] | Record<string, string> | URLSearchParams ):Promise<T>=>{
     const query = queryParams?"?"+new URLSearchParams(queryParams).toString():"";
