@@ -4,112 +4,112 @@
   background-color: var(--primary-color)
   transition: background-color var(--transition), border-top-color var(--transition)
 
-hr
-  background-color: rgba(0, 0, 0, 0.3)
-  border: none
-  height: 1px
-
-  /* Hack to pierce padding
-  width: calc(100% + 2 * var(--spacing))
-  position: relative
-  left: calc(-1 * var(--spacing))
-
-header
-  .return
-    // CSS Reset
-    background: none
+  hr
+    background-color: rgba(0, 0, 0, 0.3)
     border: none
+    height: 1px
 
-    cursor: pointer
+    /* Hack to pierce padding
+    width: calc(100% + 2 * var(--spacing))
+    position: relative
+    left: calc(-1 * var(--spacing))
 
-    height: 42px
-    .leftArrow
-      stroke: none !important
-      fill: rgba(0,0,0,.2) !important
-      
-  .name
-    color: var(--background-color)
-    font-size: 40px
-    font-weight: bold
-    margin: 10px
-
-  .id
-    color: var(--background-color)
-    font-size: 40px
-    font-weight: bold
-    margin: 10px
-    opacity: .7
-    position: absolute
-    top: -17px
-    left: 0
-    font-size: 31px
-
-main
-  padding: var(--spacing)
-  border-radius: var(--border-radius)
-  background-color: var(--background-color)
-  transition: background-color var(--transition)
-
-.figure
-  width: 200px
-
-  /*container-width
-  overflow: hidden
-
-  /*hide bounds of image
-  margin: 0
-
-  /*reset margin of figure tag
-
-  img
-    display: block
-
-    /*remove inline-block spaces
-    width: 100%
-
-.stats
-  --min-label: 130px
-  --min-meter: 70px
-  --min-column-size: calc(var(--min-meter) + var(--min-label))
-      
-  display: grid
-  grid-template-columns: repeat(auto-fill, minmax(var(--min-column-size), 1fr))
-  grid-row-gap: .2em
-  padding: var(--spacing)
-
-  .stat
-    display: flex
-    flex-wrap: nowrap
-
-  .meter
-    flex-grow: 1
-
-  .label
-    width: var(--min-label)
-    padding: 5px
-
-.genus
-  margin: var(--spacing)
-  font-weight: bold
-
-.description
-  margin: var(--spacing)
-
-.profile
   header
-    background-color: var(--primary-color)
-    color: var(--background-color)
-    font-weight: bold
+    .return
+      // CSS Reset
+      background: none
+      border: none
+
+      cursor: pointer
+
+      height: 42px
+      .leftArrow
+        stroke: none !important
+        fill: rgba(0,0,0,.2) !important
+        
+    .name
+      color: var(--background-color)
+      font-size: 40px
+      font-weight: bold
+      margin: 10px
+
+    .id
+      color: var(--background-color)
+      font-size: 40px
+      font-weight: bold
+      margin: 10px
+      opacity: .7
+      position: absolute
+      top: -17px
+      left: 0
+      font-size: 31px
+
+  main
+    padding: var(--spacing)
+    border-radius: var(--border-radius)
+    background-color: var(--background-color)
+    transition: background-color var(--transition)
+
+  .figure
+    width: 200px
+
+    /*container-width
+    overflow: hidden
+
+    /*hide bounds of image
+    margin: 0
+
+    /*reset margin of figure tag
+
+    img
+      display: block
+
+      /*remove inline-block spaces
+      width: 100%
+
+  .stats
+    --min-label: 130px
+    --min-meter: 70px
+    --min-column-size: calc(var(--min-meter) + var(--min-label))
+        
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(var(--min-column-size), 1fr))
+    grid-row-gap: .2em
     padding: var(--spacing)
 
-  > div
-    margin: var(--spacing)
+    .stat
+      display: flex
+      flex-wrap: nowrap
 
-  .label
+    .meter
+      flex-grow: 1
+
+    .label
+      width: var(--min-label)
+      padding: 5px
+
+  .genus
+    margin: var(--spacing)
     font-weight: bold
 
-    &::after
-      content: ":"
+  .description
+    margin: var(--spacing)
+
+  .profile
+    header
+      background-color: var(--primary-color)
+      color: var(--background-color)
+      font-weight: bold
+      padding: var(--spacing)
+
+    > div
+      margin: var(--spacing)
+
+    .label
+      font-weight: bold
+
+      &::after
+        content: ":"
 
 /* Small Section
 @media (max-width: 660px)
@@ -121,24 +121,24 @@ main
       height: 28px
       padding: 0
 
-  /* Hide desktop name/id
-  .typeContainer
-    .name, .id
-      display: none
+    /* Hide desktop name/id
+    .typeContainer
+      .name, .id
+        display: none
 
-    max-width: calc(100% - 100px)
+      max-width: calc(100% - 100px)
 
-  /* Make room for absolute picture
+    /* Make room for absolute picture
 
-  .figure
-    position: absolute
-    top: 0
-    right: 0px
+    .figure
+      position: absolute
+      top: 0
+      right: 0px
 
-    img
-      margin: (-15px) 0 0 55px
+      img
+        margin: (-15px) 0 0 55px
 
-      /*crop and send part off page
+        /*crop and send part off page
 
 /* Desktop Section
 @media (min-width: 660px)
@@ -156,54 +156,52 @@ main
       .id
         display: none
 
-  main
-    display: flex
-    flex-wrap: wrap
-    max-width: 820px
-    margin: 0 auto
+    main
+      display: flex
+      flex-wrap: wrap
+      max-width: 820px
+      margin: 0 auto
 
-    > *
-      flex: 1 1 auto
+      > *
+        flex: 1 1 auto
 
-  .typeContainer
-    display: flex
-    align-items: baseline
-    flex: 1 1 420px
+    .typeContainer
+      display: flex
+      align-items: baseline
+      flex: 1 1 420px
 
-    .name, .id
-      padding-right: 10px
+      .name, .id
+        padding-right: 10px
 
-    .name
-      font-size: 20px
-      font-weight: bold
-      color: var(--secondary-color)
-      flex: 0 0 auto
+      .name
+        font-size: 20px
+        font-weight: bold
+        color: var(--secondary-color)
+        flex: 0 0 auto
 
-    .id
-      font-weight: bold
-      color: rgba(0, 0, 0, 0.3)
-      flex: 1 0 auto
+      .id
+        font-weight: bold
+        color: rgba(0, 0, 0, 0.3)
+        flex: 1 0 auto
 
-  main hr
-    width: 100%
-    left: unset
-    position: relative
+    main hr
+      width: 100%
+      left: unset
+      position: relative
 
-  .figure
-    display: inline-block
+    .figure
+      display: inline-block
 
-    img
-      width: 230px
+      img
+        width: 230px
 
-  main header
-    text-align: unset
+    main header
+      text-align: unset
 
-  .detail .profile
-    display: inline-grid
-    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr))
+    .profile
+      display: inline-grid
+      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr))
 
-    header
-      padding: calc(var(--spacing)/2)
-      grid-column: 1/-1
-
-      /*Makes header span row horizontally
+      header
+        padding: calc(var(--spacing)/2)
+        grid-column: 1/-1
