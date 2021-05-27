@@ -1,5 +1,4 @@
 /* General Section
-
 .detail
   padding: var(--spacing)
   background-color: var(--primary-color)
@@ -16,6 +15,18 @@ hr
   left: calc(-1 * var(--spacing))
 
 header
+  .return
+    // CSS Reset
+    background: none
+    border: none
+
+    cursor: pointer
+
+    height: 42px
+    .leftArrow
+      stroke: none !important
+      fill: rgba(0,0,0,.2) !important
+      
   .name
     color: var(--background-color)
     font-size: 40px
@@ -105,6 +116,10 @@ main
   .detail
     border-top: 30px solid var(--secondary-color)
     --spacing: var(--mobile-spacing)
+
+    .return
+      height: 28px
+      padding: 0
 
   /* Hide desktop name/id
   .typeContainer

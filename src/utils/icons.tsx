@@ -9,11 +9,9 @@ interface ArrowParams extends IconParams{
 }
 
 export const ArrowIcon=({className="__arrow__",rotation="90deg"}:ArrowParams)=>
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 83.43 83.24">
-    <defs><style>
-        {`.${className}{fill:#fff;stroke:#231f20;stroke-miterlimit:10;}`}
-    </style></defs>
-    <g className={className}><svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 83.43 83.24"
+        style={{fill:`#fff`,stroke:`#231f20`}} className={className}>
+    <g><svg>
         <polygon style={{
             transform:`rotate(${rotation})`,
             transformBox: `fill-box`,

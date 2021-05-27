@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
-import { getPokemonList, PokemonList } from "../../API";
+import { API_TO_UI_URL as API2UI, getPokemonList, PokemonList } from "../../API";
+import { LeftArrow, RightArrow } from "../../utils/icons";
 import { PokeType } from "../pokeType/PokeType";
 import styles from './Pokelist.module.sass';
 
@@ -25,17 +26,23 @@ export const PokeList = ({onNameChange,page,name}:PokeListProps)=>{
             .then(setAttrs)
     },[page,name])
 
+
+
     return <div>
         <header>
-            <button className={styles.prevButton}>Previous</button>
+            {attrs?.links.prev&& <a href={API2UI(attrs.links.prev)}>
+                <LeftArrow className={styles.prev}/>
+            </a>}
             <form>
                 <input type="text" value={name} onChange={(e)=>onNameChange(e.target.value)} />
             </form>
-            <button className={styles.nextButton}>Next</button>
+            {attrs?.links.next&& <a href={API2UI(attrs.links.next)}>
+                <RightArrow className={styles.next}/>
+            </a>}
         </header>
         <main className={styles.list}>
         {attrs?.data.map(({id,name,image,types},i)=>(
-            <a key={i} href={history.location.pathname+id}>
+            <a key={i} href={history.location.pathname+'/'+id}>
                 <div key={i} className={styles.pokemon}>
                     <span>{name}</span>
                     <img src={image} alt={name}/>

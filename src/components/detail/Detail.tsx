@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import { getPokemon, PokemonAttributes } from "../../API";
 import { ColorString, DominantColors } from "../../utils/color";
-import { CapitalFirst, TitleCase } from "../../utils/utils";
+import { LeftArrow } from "../../utils/icons";
+import { CapitalFirst, sameOrigin, TitleCase } from "../../utils/utils";
 import { Meter } from "../meter/Meter";
 import { PokeType } from "../pokeType/PokeType";
 import styles from './Detail.module.sass';
@@ -17,6 +19,12 @@ const Detail = ({id}:DetailProps)=>{
     // State management
     const [attrs, setAttrs] = useState<PokemonAttributes&{styleVars?:React.CSSProperties}|undefined>(undefined);
     
+    // For back button
+    const history = useHistory();
+    // If a local referral (within the same session) then it is a browser "go back"
+    // Otherwise, it is a link
+    const localReferral = sameOrigin(document.referrer);
+
     // Download data
     useEffect(()=>{
         getPokemon(id).then(res=>res.data).then(attrs=>{
@@ -45,6 +53,12 @@ const Detail = ({id}:DetailProps)=>{
     return (
     <div className={styles.detail} style={attrs?.styleVars}>
         <header>
+            {localReferral?
+                <button onClick={history.goBack} className={styles.return}>
+                    <LeftArrow className={styles.leftArrow}/>
+                </button>
+                :<a href="/pokemon/"><div className={styles.return}><LeftArrow className={styles.leftArrow}/></div></a>
+            }
             <span className={styles.name}>{attrs?.name}</span>
             <span className={styles.id}>#{attrs?.id}</span>
         </header>
