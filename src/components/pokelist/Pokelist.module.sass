@@ -8,61 +8,15 @@
     justify-content: space-between
     padding: 30px 10px 20px
 
+    .search
+      min-width: 300px
+
     .prev, .next
       --size: 42px
       height: var(--size)
       width: var(--size)
       stroke: none !important // To override default styling
       fill: rgba(0,0,0,.2) !important // To override default styling
-
-    .searchContainer
-      display: flex
-      align-items: center
-      justify-content: space-between
-      
-      background: rgba(0,0,0, .05)
-      border-radius: var(--border-radius)
-      min-width: 300px
-
-      .magnifier
-        stroke: rgba(255,255,255,.8)
-        width: 30px
-        margin-left: 5px
-      .search
-        border: none
-        color: rgba(0,0,0,.4)
-        font-size: 30px
-        font-weight: bold
-        cursor: text
-        flex-grow: 1
-        padding: 3px 15px
-
-        &:empty:before
-          content: "Pokédex"
-        &:focus
-          outline: 0px solid transparent
-          &:before
-            content: ""
-      .clearSearch
-        background: none
-        color: inherit
-        border: none
-        padding: 0
-        font: inherit
-        cursor: pointer
-        outline: inherit
-
-        margin: 0 10px
-        --size: 15px
-        width: var(--size)
-        height: var(--size)
-        font-size: 10px
-        border-radius: 50%
-        background-color: rgba(255,255,255,.8)
-        color: rgba(0,0,0,.5)
-        font-weight: bold
-
-
 
   .list
     display: grid

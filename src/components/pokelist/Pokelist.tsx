@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { API_TO_UI_URL as API2UI, getPokemonList, PokemonList } from "../../API";
-import { LeftArrow, Magnifier, RightArrow } from "../../utils/icons";
+import { LeftArrow, RightArrow } from "../../utils/icons";
 import { PokeType } from "../pokeType/PokeType";
+import { Search } from "../search/Search";
 import styles from './Pokelist.module.sass';
 
 interface PokeListProps{
@@ -27,17 +28,6 @@ export const PokeList = ({onNameChange,page,name}:PokeListProps)=>{
     },[page,name])
 
 
-    const getSearchBox = ()=> document.getElementsByClassName(styles.search)[0];
-    useEffect(()=>{
-        const searchBox = getSearchBox();
-        // innerHTML XOR name
-        if (searchBox.innerHTML===""? name:!name) searchBox.innerHTML = name||""
-    },[name])
-    // const clearSearch = ()=>{
-    //     getSearchBox().innerHTML="";
-    //     onNameChange("");
-    // }
-
     return <div className={styles.pokeList}>
         <header>
             {
@@ -49,18 +39,9 @@ export const PokeList = ({onNameChange,page,name}:PokeListProps)=>{
                 </a>
                 // Else just do an empty spot
                 :<div className={styles.prev}></div>}
-
-            <div className={styles.searchContainer}> 
-                <Magnifier className={styles.magnifier}/>
-                <div
-                    contentEditable="true"
-                    onInput={(e)=>onNameChange(e.currentTarget.innerText)}
-                    className={styles.search}
-                    >
-                </div>
-                {name&&<button onClick={()=>onNameChange("")} className={styles.clearSearch}>X</button>}
-            </div>
             
+            <Search className={styles.search} onChange={onNameChange} placeHolder={"Pokédex"} textValue={name}/>
+
             {
             // Right Arrow
             attrs?.links.next?
