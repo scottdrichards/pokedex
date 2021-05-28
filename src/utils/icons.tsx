@@ -42,6 +42,6 @@ export const PokeBall = ({className}:IconParams)=>
 
 export const Magnifier = ({className}:IconParams)=>
 <svg xmlns="http://www.w3.org/2000/svg" width="76.27" height="76.27" viewBox="0 0 76.27 76.27" className={className}>
-    <line x1="70.77" y1="70.77" x2="49.36" y2="49.36" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="11"/>
-    <circle cx="30.83" cy="30.83" r="25.33" fill="none" stroke-miterlimit="10" stroke-width="11"/>
+    <line x1="70.77" y1="70.77" x2="49.36" y2="49.36" fill="none" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="11"/>
+    <circle cx="30.83" cy="30.83" r="25.33" fill="none" strokeMiterlimit="10" strokeWidth="11"/>
 </svg>
