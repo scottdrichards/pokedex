@@ -26,9 +26,7 @@ interface APIResponse{
 
 type StatsTypes = "hp"|"speed"|"attack"|"defense"|"special-attack"|"special-defense";
 
-export type PokemonStats={
-    [key in StatsTypes]:number
-};
+export type PokemonStats=Record<StatsTypes,number>;
 
 export interface PokemonAttributes{
     id:number,
@@ -43,6 +41,9 @@ export interface PokemonAttributes{
     genus:string,
     description:string
 }
+type ProfileKeys = "height"|"weight"|"egg_groups"|"abilities";
+export type ProfileAttrs = Pick<PokemonAttributes,ProfileKeys>
+
 export const getPokemon = (id:number)=>api<{data:PokemonAttributes}>(API_POKEMON_URL+'/'+id)
 
 type PokemonSubAttributeKeys = "id"|"name"|"image"|"types";

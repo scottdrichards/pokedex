@@ -3,9 +3,10 @@ import { useHistory } from "react-router";
 import { getPokemon, PokemonAttributes } from "../../API";
 import { ColorString, DominantColors } from "../../utils/color";
 import { LeftArrow } from "../../utils/icons";
-import { CapitalFirst, sameOrigin } from "../../utils/utils";
+import { sameOrigin } from "../../utils/utils";
 import { PokeType } from "../pokeType/PokeType";
 import styles from './Detail.module.sass';
+import { Profile } from "./profile/Profile";
 import { Stats } from "./stats/Stats";
 
 interface DetailProps{id:number}
@@ -82,23 +83,7 @@ const Detail = ({id}:DetailProps)=>{
                 <div className={styles.genus}>{attrs?.genus}</div>
                 <div className={styles.description}>{attrs?.description}</div>
             </section>
-            <section className={styles.profile}>
-                <header>Profile</header>
-                {[
-                    // Modify the properties for presentation (adding units etc.)
-                    // Also adding keys here so that we don't need to repeat HTML
-                    // aspects (className etc.)
-                    ["Height",attrs?.height + " m"],
-                    ["Weight", attrs?.weight+" kg"],
-                    ["Egg Groups", attrs?.egg_groups.map(CapitalFirst).join(", ")],
-                    ["Abilities", attrs?.abilities.map(CapitalFirst).join(", ")]
-                ].map(([label,value])=>(
-                    <div key={label}>
-                        <div className={styles.label}>{label}</div>
-                        <div className={styles.value}>{value}</div>
-                    </div>
-                ))}
-            </section>
+            {attrs&&<Profile attrs={attrs}/>}
         </main>
     </div>)
 }

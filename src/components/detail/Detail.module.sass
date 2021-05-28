@@ -103,23 +103,6 @@
   .description
     margin: var(--spacing)
 
-  .profile
-    width: 100%
-    header
-      background-color: var(--primary-color)
-      color: var(--background-color)
-      font-weight: bold
-      padding: var(--spacing)
-      // width: 100%
-
-    > div
-      margin: var(--spacing)
-
-    .label
-      font-weight: bold
-
-      &::after
-        content: ":"
 
 /* Small Section
 @media (max-width: 660px)
@@ -211,11 +194,3 @@
 
     main header
       text-align: unset
-
-    .profile
-      display: inline-grid
-      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr))
-
-      header
-        padding: calc(var(--spacing)/2)
-        grid-column: 1/-1
