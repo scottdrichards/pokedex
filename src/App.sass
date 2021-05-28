@@ -7,3 +7,12 @@
   --mobile-spacing: 10px
   --desktop-spacing: 20px
   --transition: 1s
+
+html, body, #root, .App
+  height: 100%
+
+
+@media (max-width: 660px)
+  --spacing: var(--mobile-spacing)
+@media (min-width: 660px)
+  --spacing: var(--desktop-spacing)

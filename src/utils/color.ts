@@ -113,7 +113,7 @@ export const DominantColors = async ({url,numSamples=100,numColors=2}:DominantCo
                 return !isGrayscale;
             })
             .filter(p=>{
-                const tooLight = luminance(p) > 300;
+                const tooLight = luminance(p) > 200;
                 return !tooLight
             })
             // Only use every n pixel

@@ -50,8 +50,11 @@ const Detail = ({id}:DetailProps)=>{
 
     ////////////////
     // Render
-    return (!attrs?<div>loading</div>:
-    <div className={styles.detail} style={attrs.styleVars}>
+    return (
+    <div className={styles.detail} style={attrs?.styleVars}>
+        {/* <div className={`${styles.loadScreen} ${attrs?styles.loaded:""}`}>
+            <PokeBall className={styles.pokeball}/>
+        </div> */}
         <header>
             {localReferral?
                 <button onClick={history.goBack} className={styles.return}>
@@ -59,19 +62,19 @@ const Detail = ({id}:DetailProps)=>{
                 </button>
                 :<a href="/pokemon/"><div className={styles.return}><LeftArrow className={styles.leftArrow}/></div></a>
             }
-            <span className={styles.name}>{attrs.name}</span>
-            <span className={styles.id}>#{attrs.id}</span>
+            <span className={styles.name}>{attrs?.name}</span>
+            <span className={styles.id}>#{attrs?.id}</span>
         </header>
         <main>
             <section className={styles.typeContainer}>
-                <span className={styles.name}>{attrs.name}</span>
-                <span className={styles.id}>#{attrs.id}</span>
-                {attrs.types.map((type,i)=>(
+                <span className={styles.name}>{attrs?.name}</span>
+                <span className={styles.id}>#{attrs?.id}</span>
+                {attrs?.types.map((type,i)=>(
                     <PokeType type={type} key={i}/>
                 ))}
             </section>
             <hr/>
-            <figure className={styles.figure}><img src={attrs.image} alt={attrs.name} ></img></figure>
+            <figure className={styles.figure}><img src={attrs?.image} alt={attrs?.name} ></img></figure>
             <section className={styles.stats}>
                 {attrs&&Object.entries(attrs.stats).map(([k,v],i)=>(
                     <div className={styles.stat} key={i}>
@@ -81,8 +84,8 @@ const Detail = ({id}:DetailProps)=>{
                 ))}
             </section>
             <section>
-                <div className={styles.genus}>{attrs.genus}</div>
-                <div className={styles.description}>{attrs.description}</div>
+                <div className={styles.genus}>{attrs?.genus}</div>
+                <div className={styles.description}>{attrs?.description}</div>
             </section>
             <section className={styles.profile}>
                 <header>Profile</header>
@@ -90,10 +93,10 @@ const Detail = ({id}:DetailProps)=>{
                     // Modify the properties for presentation (adding units etc.)
                     // Also adding keys here so that we don't need to repeat HTML
                     // aspects (className etc.)
-                    ["Height",attrs.height + " m"],
-                    ["Weight", attrs.weight+" kg"],
-                    ["Egg Groups", attrs.egg_groups.map(CapitalFirst).join(", ")],
-                    ["Abilities", attrs.abilities.map(CapitalFirst).join(", ")]
+                    ["Height",attrs?.height + " m"],
+                    ["Weight", attrs?.weight+" kg"],
+                    ["Egg Groups", attrs?.egg_groups.map(CapitalFirst).join(", ")],
+                    ["Abilities", attrs?.abilities.map(CapitalFirst).join(", ")]
                 ].map(([label,value])=>(
                     <div key={label}>
                         <div className={styles.label}>{label}</div>
