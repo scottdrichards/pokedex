@@ -26,14 +26,16 @@ interface APIResponse{
 
 type StatsTypes = "hp"|"speed"|"attack"|"defense"|"special-attack"|"special-defense";
 
+export type PokemonStats={
+    [key in StatsTypes]:number
+};
+
 export interface PokemonAttributes{
     id:number,
     name: string,
     image: string,
     types:string[],
-    stats:{
-        [key in StatsTypes]:number
-    }
+    stats:PokemonStats
     height: number,
     weight:number,
     abilities:string[],

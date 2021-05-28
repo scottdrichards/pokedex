@@ -3,10 +3,10 @@ import { useHistory } from "react-router";
 import { getPokemon, PokemonAttributes } from "../../API";
 import { ColorString, DominantColors } from "../../utils/color";
 import { LeftArrow } from "../../utils/icons";
-import { CapitalFirst, sameOrigin, TitleCase } from "../../utils/utils";
-import { Meter } from "../meter/Meter";
+import { CapitalFirst, sameOrigin } from "../../utils/utils";
 import { PokeType } from "../pokeType/PokeType";
 import styles from './Detail.module.sass';
+import { Stats } from "./stats/Stats";
 
 interface DetailProps{id:number}
 
@@ -76,12 +76,7 @@ const Detail = ({id}:DetailProps)=>{
             <hr/>
             <figure className={styles.figure}><img src={attrs?.image} alt={attrs?.name} ></img></figure>
             <section className={styles.stats}>
-                {attrs&&Object.entries(attrs.stats).map(([k,v],i)=>(
-                    <div className={styles.stat} key={i}>
-                        <div className={styles.label} >{TitleCase(k)}</div>
-                        <Meter className={styles.meter} val={v} min={0} max={255}/>
-                    </div>
-                ))}
+                {attrs&&<Stats stats={attrs?.stats}/>}
             </section>
             <section>
                 <div className={styles.genus}>{attrs?.genus}</div>
