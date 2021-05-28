@@ -3,7 +3,6 @@ import { useHistory } from "react-router";
 import { API_TO_UI_URL as API2UI, getPokemonList, PokemonList } from "../../API";
 import { LeftArrow, RightArrow } from "../../utils/icons";
 import { PokePreview } from "../pokePreview/PokePreview";
-import { PokeType } from "../pokeType/PokeType";
 import { Search } from "../search/Search";
 import styles from './Pokelist.module.sass';
 
