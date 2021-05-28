@@ -75,7 +75,7 @@ export const PokeList = ({onNameChange,page,name}:PokeListProps)=>{
 
         <main className={styles.list}>
         {attrs?.data.map(({id,name,image,types},i)=>(
-            <a key={i} href={history.location.pathname+(history.location.pathname[-1]==='/'?'':'/')+id}>
+            <a key={i} href={history.location.pathname+(history.location.pathname[history.location.pathname.length-1]==='/'?'':'/')+id}>
                 <div className={styles.pokemon}>
                     <header><span>{name}</span></header>
                     <main>
