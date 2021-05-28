@@ -107,8 +107,9 @@
 /* Small Section
 @media (max-width: 660px)
   .detail
-    border-top: 30px solid var(--secondary-color)
     --spacing: var(--mobile-spacing)
+    border-top: calc(3 * var(--spacing)) solid var(--secondary-color)
+    min-height: calc(100% - 5 * var(--spacing))
 
     .return
       height: 28px
