@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { API_TO_UI_URL as API2UI, getPokemonList, PokemonList } from "../../API";
 import { LeftArrow, RightArrow } from "../../utils/icons";
+import { PokePreview } from "../pokePreview/PokePreview";
 import { PokeType } from "../pokeType/PokeType";
 import { Search } from "../search/Search";
 import styles from './Pokelist.module.sass';
@@ -57,15 +58,7 @@ export const PokeList = ({onNameChange,page,name}:PokeListProps)=>{
         <main className={styles.list}>
         {attrs?.data.map(({id,name,image,types},i)=>(
             <a key={i} href={history.location.pathname+(history.location.pathname[history.location.pathname.length-1]==='/'?'':'/')+id}>
-                <div className={styles.pokemon}>
-                    <header><span>{name}</span></header>
-                    <main>
-                        <img src={image} alt={name}/>
-                        <div className={styles.typesContainer}>
-                            {types.map((type,i)=>(<PokeType type={type} key={type}/>))}
-                        </div>
-                    </main>
-                </div>
+                <PokePreview name={name} image={image} types={types} />
             </a>
         ))}
         </main>
