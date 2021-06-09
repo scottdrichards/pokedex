@@ -1,6 +1,6 @@
 # PokeDex Demo Project
 
-This project is a front-end skills demonstration to show my competency in front-end design and development. This project mainly is created using React and Typescript.
+This project is a front-end skills demonstration to show my competency in front-end design and development. This project mainly is created using React and Typescript. Backend information, images, and UI specification were provided while all else was created from scratch.
 
 ## To run:
 1. Install [node.js](https://nodejs.org/en/download/)
