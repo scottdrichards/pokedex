@@ -12,7 +12,7 @@ This project is a front-end skills demonstration to show my competency in front-
 
 ## Comments:
 - Sizes, layouts, and colors are not pixel-perfect accurate.
-- The recommended colorthief library required a >1GB install of Visual Studio distributables so I wrote my own basic one. Because of security/CORS, the script cannot read pixel data from images from other origins. This will generate an error in the browser and automatically fall back to a Google proxy with more permissive CORS policies.
+- I was having trouble with the colorthief library for grabbing primary/secondary colors from images, so I wrote my own basic one. Because of security/CORS, the script cannot read pixel data from images from other origins. This will generate an error in the browser and automatically fall back to a Google proxy with more permissive CORS policies.
   - This dominant color script just counts colors and does not do any form of clustering. This makes it rather innacurate for most images but is sufficient to demonstrate the effect of dynamic theming.
 - The specification called for a back button in the detail page. This can have ambiguous behavior as to whether it should do the browser history back or go to the list page. I do not believe I back button is appropriate within a browser as it conflicts with the native back functionality and can be confusing to the user. I implemented it so that it goes back (browser history) if the previous session history item is in the same domain and otherwise is a dumb link to the list.
 ## Improvements
